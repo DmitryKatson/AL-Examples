@@ -1,0 +1,15 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "al",
+			"request": "publish",
+			"name": "Local server",
+			"server": "http://localhost",
+			"serverInstance": "US",
+			"tenant": "default",
+			"authentication": "Windows",
+			"startupObjectId": 9305
+		}
+	]
+}
