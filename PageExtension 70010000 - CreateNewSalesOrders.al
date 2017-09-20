@@ -20,7 +20,7 @@ pageextension 70010000 "CreateNewSalesOrders" extends "Sales Order List"
     {
         addbefore("SendApprovalRequest")
         {
-            Action("Create 1000 Orders")
+            Action("Make 1000 Orders")
             {
                 ApplicationArea = All;
                 Image = Copy;
@@ -47,7 +47,7 @@ pageextension 70010000 "CreateNewSalesOrders" extends "Sales Order List"
             }
             Action(AIRRelease)
             {
-                ApplicationArea = All;
+                //ApplicationArea = All;
                 Image = ReleaseDoc;
                 
                 trigger OnAction();
@@ -58,7 +58,7 @@ pageextension 70010000 "CreateNewSalesOrders" extends "Sales Order List"
                 end;
             }
             
-            Action(LinesCount)
+            Action("SO Count")
             {
                 ApplicationArea = All;
                 Image = NewSum;
@@ -68,6 +68,20 @@ pageextension 70010000 "CreateNewSalesOrders" extends "Sales Order List"
                     Message('Total number of Sales Orders are %1',Count);
                 end;
             }
+            
+            Action("Total Sales Documents")
+            {
+                ApplicationArea = All;
+                Image = NewSum;
+                
+                trigger OnAction();
+                var
+                    SalesDocuments: Record "Sales Header";
+                begin
+                    Message('Total number of Sales Documents are %1',SalesDocuments.Count);
+                end;
+            }
+            
         }
     }
     
